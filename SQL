@@ -70,4 +70,58 @@ VALUES
 SELECT * FROM employee_demographics;
 
 
+#WHERE Clause (database-employee_demographics)
+SELECT *
+FROM employee_demographics
+WHERE gender != "Female";
+
+SELECT *
+FROM employee_demographics
+WHERE gender != "Female" AND age >= 40;
+
+SELECT *
+FROM employee_demographics
+WHERE gender = "Female" OR age >= 40;
+
+SELECT *
+FROM employee_demographics
+WHERE age BETWEEN 40 AND 55;
+
+SELECT *
+FROM employee_demographics
+WHERE first_name LIKE "Jer%" ;
+
+SELECT *
+FROM employee_demographics
+WHERE first_name LIKE "A___%" ;
+
+
+#GROUP BY Clause 
+SELECT gender
+FROM employee_demographics
+GROUP BY gender = "Female";
+
+SELECT gender, COUNT(age)
+FROM employee_demographics
+GROUP BY gender
+
+SELECT gender, AVG(age), MIN(age), MAX(age)
+FROM employee_demographics
+GROUP BY gender;
+
+
+#ORDER BY & LIMIT Clause
+SELECT salary, first_name, last_name
+FROM employee_salary
+GROUP BY salary ASC
+LIMIT 3;
+
+SELECT age, first_name, last_name
+FROM employee_demographics
+GROUP BY age DESC
+LIMIT 3;
+
+
+
+
 
