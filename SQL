@@ -167,4 +167,44 @@ ON emp1.employee_id+1=emp2.employee_id;
 
 
 
+#CASE STUDY ON UNION
+
+SELECT first_name, last_name, 'Old Man' as Label 
+FROM employee_demographics
+WHERE age > 40 AND gender = "Male"
+UNION
+SELECT first_name, last_name, 'Old Lady' as Label 
+FROM employee_demographics
+WHERE age > 40 AND gender = "Female"
+UNION
+SELECT first_name, last_name, 'High Paying' as Label
+FROM employee_salary
+WHERE salary > 70000
+ORDER BY first_name, last_name;
+
+
+#BASICS OF STRINGS [SYNTAX - SELECT ---]
+#SELECT LENGHT (STRING) - NO. OF LETTER 
+#SELECT UPPERCASE (STRING) - CHANGE THE STRING INTO UPPERCASE
+#SELECT LOWERCASE (STRING) - CHANGE THE STRING INTO LOWERCASE
+#SELECT TRIM (STRING) - TRIM THE WHITE SPACES
+#SELECT LTRIM (STRING) - TRIM THE WHITE SPACES ON LEFT
+#SELECT RTRIM (STRING) - TRIM THE WHITE SPACES ON RIGHT
+#SELECT LEFT (STRING, NO.) - ONLY SHOW US THE MENTIONED NO. OF LETTERS FROM LEFT
+#SELECT RIGHT (STRING, NO.) - ONLY SHOW US THE MENTIONED NO. OF LETTERS FROM RIGHT
+#SELECT SUBSTRING (STRING, POSITION, NO.)
+#SELECT REPLACE (STRING, 'REPLACE LETTER', 'WITH')
+#SELECT LOCATE (STRING, 'WHAT U WANT TO LOACTE')
+#SELECT CONCAT (STRING, STRING) - COMBINE THE MULTIPLE TABLE
+
+
+#EXAMPLE
+SELECT UPPER(first_name) AS First_name,
+LOWER(last_name) AS Last_name,
+CONCAT (First_name, " ", Last_name) AS Full_name,
+SUBSTRING(birth_date, 6, 2) AS Birth_month
+FROM employee_demographics;
+
+
+
 
