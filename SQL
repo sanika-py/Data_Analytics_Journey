@@ -206,5 +206,23 @@ SUBSTRING(birth_date, 6, 2) AS Birth_month
 FROM employee_demographics;
 
 
+#USE OF CASE, CASE STUDY - LETS ASSUME IT'S NEW YEAR'S EVE AND COMPANY IS GIVING THEIR EMPLOYEE A SALARY HIKE AND ADDED BONUS.
+#THE CONDITIONS ARE EMPLOYEE WHOSE SALARY IS BELOW 55K WILL GET 2% IN SALARY HIKE AND ABOVE 55K WILL GET 5%. 
+#AND FINANCE DEPARTMENT WILL GET THE 10% OF ADDED SALARY BONUS.
+#EXAMPLE
+SELECT first_name,
+last_name,
+salary,
+CASE
+    WHEN salary > 50000 THEN salary + (salary * 0.02)
+    WHEN salary <= 50000 THEN salary + (salary * 0.05)
+END AS New_Salary,
+CASE
+    WHEN dept_id = 6 THEN salary * 0.10
+END AS Bonus
+FROM employee_salary;
+
+
+
 
 
